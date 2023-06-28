@@ -1,0 +1,6 @@
+include .editorconfig
+include .flake8
+include .gitignore
+include .vscode/settings.json
+include tox.ini
+recursive-include test/ test_*.py

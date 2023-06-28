@@ -1,0 +1,52 @@
+[project]
+name = "PACKAGE_NAME"
+version = "0.1.0"
+authors = [
+  {name="USERNAME"},
+]
+description = "PACKAGE_DESCRIPTION"
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = [
+  # https://pypi.org/classifiers/
+  "Development Status :: 1 - Planning",
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/USERNAME/PACKAGE_NAME"
+
+[project.optional-dependencies]
+dev = [
+  "bandit",
+  "black",
+  "flake8",
+  "isort",
+  "mypy",
+]
+test = [
+  "pytest",
+  "pytest-cov",
+  "tox",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+# relaxed line length
+line-length = 99
+
+[tool.isort]
+profile = "black"
+# relaxed line length
+line_length = 99
+
+[tool.pytest.ini_options]
+# disable `--cov=` for stopping at breakpoint on VSCode debugging.
+#addopts = ["--cov=src", "-v"]
+pythonpath = "src"
+testpaths = ["test",]

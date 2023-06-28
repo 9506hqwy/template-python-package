@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+    tags-ignore: [ '*' ]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Test Libraries
+      run: pip install tox
+
+    - name: Run Tests
+      run: tox
+
+    - name: Install build Libraries
+      run: pip install build
+
+    - name: Create Artifacts
+      run: python -m build

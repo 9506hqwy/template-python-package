@@ -1,0 +1,15 @@
+[flake8]
+# relaxed line length
+max-line-length = 99
+
+# https://www.flake8rules.com/rules/E203.html
+extend-ignore = E203
+
+# exclude patterns
+extend-exclude =
+  .coverage
+  .mypy_cache
+  .pytest_cache
+  .tox
+  .venv
+  .vscode
