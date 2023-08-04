@@ -46,7 +46,6 @@ profile = "black"
 line_length = 99
 
 [tool.pytest.ini_options]
-# disable `--cov=` for stopping at breakpoint on VSCode debugging.
-#addopts = ["--cov=src", "-v"]
+addopts = ["--cov=src", "-v"]
 pythonpath = "src"
 testpaths = ["test",]
