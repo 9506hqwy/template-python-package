@@ -23,6 +23,21 @@ jobs:
     - name: Run Tests
       run: tox
 
+    - name: Generate coverage report
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        pip install pytest pytest-cov
+        dotnet tool install -g dotnet-reportgenerator-globaltool
+
+        pytest --cov-report xml
+        reportgenerator -reports:"./coverage.xml" -targetdir:"./artifacts" -reporttypes:"MarkdownSummaryGithub;TextSummary"
+
+    - name: Report coverage
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        cat "./artifacts/Summary.txt"
+        cat "./artifacts/SummaryGithub.md" > $GITHUB_STEP_SUMMARY
+
     - name: Install build Libraries
       run: pip install build
 

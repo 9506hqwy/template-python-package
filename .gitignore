@@ -3,6 +3,7 @@
 .tox/
 .venv/
 __pycache__/
+artifacts/
 dist/
 *.egg-info/
 
