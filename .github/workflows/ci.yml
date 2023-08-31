@@ -28,3 +28,10 @@ jobs:
 
     - name: Create Artifacts
       run: python -m build
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: artifacts
+        path: dist
+        retention-days: 1
