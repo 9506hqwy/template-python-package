@@ -35,8 +35,8 @@ jobs:
 
     - name: Run Tests
       run: |
-        VER='${{ matrix.version }}'
-        tox run -e py${VER/./}
+        VER=$(echo '${{ matrix.version }}' | sed -e 's/\.//')
+        tox run -e py${VER}
 
     - name: Generate Coverage Report
       run: |
