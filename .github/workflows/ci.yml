@@ -61,7 +61,7 @@ jobs:
       run: python -m build
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: artifacts-${{ runner.os }}-${{ runner.arch }}-${{ matrix.version }}-${{ github.run_number }}
         path: |
@@ -105,7 +105,7 @@ jobs:
       run: python -m build
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: artifacts-${{ runner.os }}-${{ runner.arch }}-${{ github.run_number }}
         path: |
