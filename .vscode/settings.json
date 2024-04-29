@@ -1,16 +1,10 @@
 {
     "coverage-gutters.showLineCoverage": true,
     "[python]": {
-        "editor.defaultFormatter": null,
+        "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true
     },
-    "python.formatting.provider": "black",
-    "python.linting.enabled": true,
-    "python.linting.lintOnSave": true,
     "python.linting.banditEnabled": true,
-    "python.linting.flake8Enabled": true,
-    "python.linting.mypyEnabled": true,
-    "python.linting.pylintEnabled": false,
     "python.testing.pytestArgs": [
         "--cov-report",
         "xml"
