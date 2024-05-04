@@ -4,7 +4,6 @@
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true
     },
-    "python.linting.banditEnabled": true,
     "python.testing.pytestArgs": [
         "--cov-report",
         "xml"

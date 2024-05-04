@@ -16,7 +16,7 @@ This repository provides a template for python package.
 Install require libraries.
 
 ```sh
-python3 -m pip install bandit black flake8 isort mypy
+python3 -m pip install bandit black flake8 flake8-bandit isort mypy
 ```
 
 ## Testing
