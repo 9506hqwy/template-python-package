@@ -16,7 +16,7 @@ This repository provides a template for python package.
 Install require libraries.
 
 ```sh
-python3 -m pip install bandit black flake8 flake8-bandit isort mypy
+python3 -m pip install -r requirements-dev.txt
 ```
 
 ## Testing
@@ -24,7 +24,7 @@ python3 -m pip install bandit black flake8 flake8-bandit isort mypy
 Install require libraries.
 
 ```sh
-python3 -m pip install pytest pytest-cov tox
+python3 -m pip install -r requirements-test.txt
 ```
 
 Execute test code.

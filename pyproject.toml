@@ -14,24 +14,10 @@ classifiers = [
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
 ]
+dynamic = ["optional-dependencies"]
 
 [project.urls]
 Homepage = "https://github.com/USERNAME/PACKAGE_NAME"
-
-[project.optional-dependencies]
-dev = [
-  "bandit",
-  "black",
-  "flake8",
-  "flake8-bandit",
-  "isort",
-  "mypy",
-]
-test = [
-  "pytest",
-  "pytest-cov",
-  "tox",
-]
 
 [build-system]
 requires = ["setuptools"]
@@ -61,3 +47,7 @@ warn_unused_ignores = true
 addopts = ["--cov=src", "-v"]
 pythonpath = "src"
 testpaths = ["test",]
+
+[tool.setuptools.dynamic.optional-dependencies]
+dev = { file = ["requirements-dev.txt"] }
+test = { file = ["requirements-test.txt"] }
