@@ -51,3 +51,39 @@ testpaths = ["test",]
 [tool.setuptools.dynamic.optional-dependencies]
 dev = { file = ["requirements-dev.txt"] }
 test = { file = ["requirements-test.txt"] }
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+env_list =
+  format
+  lint
+  type
+  py38
+  py39
+  py310
+  py311
+  py312
+
+[testenv]
+deps =
+  pytest
+  pytest-cov
+commands =
+  pytest --cov-append
+
+[testenv:format]
+deps = black
+commands =
+  black --check .
+
+[testenv:lint]
+deps = flake8
+commands =
+  flake8
+
+[testenv:type]
+deps = mypy
+commands =
+  mypy ./src
+"""
