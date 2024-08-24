@@ -2,6 +2,7 @@
 Arithmetics function.
 """
 
+
 def add(a: int, b: int) -> int:
     """Addition operation.
 

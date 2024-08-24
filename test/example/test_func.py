@@ -4,9 +4,9 @@ from example.func import (
 )
 
 
-def test_add():
+def test_add() -> None:
     assert add(2, 1) == 3
 
 
-def test_sub():
+def test_sub() -> None:
     assert sub(2, 1) == 1

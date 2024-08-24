@@ -2,8 +2,9 @@
 # relaxed line length
 max-line-length = 99
 
-# https://www.flake8rules.com/rules/E203.html
-extend-ignore = E203
+# ignore rules
+per-file-ignores =
+  test/*: S101
 
 # exclude patterns
 extend-exclude =
@@ -13,3 +14,6 @@ extend-exclude =
   .tox
   .venv
   .vscode
+  artifacts
+  dist
+  doc
