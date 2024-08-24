@@ -6,6 +6,7 @@
         "ms-python.flake8",
         "ms-python.mypy-type-checker",
         "ms-python.vscode-pylance",
+        "njpwerner.autodocstring",
         "ryanluker.vscode-coverage-gutters"
     ]
 }

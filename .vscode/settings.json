@@ -1,4 +1,5 @@
 {
+    "autoDocstring.docstringFormat": "sphinx",
     "coverage-gutters.showLineCoverage": true,
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",

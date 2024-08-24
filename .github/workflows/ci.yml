@@ -99,10 +99,21 @@ jobs:
         Get-Content ".\artifacts\SummaryGithub.md" > $env:GITHUB_STEP_SUMMARY
 
     - name: Install Build Libraries
-      run: pip install build
+      run: |
+        pip install build
+        pip install -r requirements-doc.txt
 
     - name: Create Artifacts
-      run: python -m build
+      run: |
+        python -m build
+
+        $REPOSITORY_NAME = ($env:GITHUB_REPOSITORY -Split '/')[1]
+        sphinx-apidoc -F -f -a -H $REPOSITORY_NAME -A $env:GITHUB_REPOSITORY_OWNER -V latest -o doc src
+        pushd doc
+        .\make.bat html
+        popd
+
+        Compress-Archive -Path 'doc\_build\html\*' -DestinationPath ".\artifacts\help-${REPOSITORY_NAME}.zip"
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4

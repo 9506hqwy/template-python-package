@@ -33,6 +33,22 @@ Execute test code.
 tox
 ```
 
+## Documentation
+
+Install require libraries.
+
+```sh
+python3 -m pip install -r requirements-doc.txt
+```
+
+Generate API document.
+
+```sh
+sphinx-apidoc -F -f -a -H PROJECT -A AUTHOR -V VERSION -o doc src
+cd doc
+make html
+```
+
 ## Building package
 
 Install require libraries.

@@ -50,6 +50,7 @@ testpaths = ["test",]
 
 [tool.setuptools.dynamic.optional-dependencies]
 dev = { file = ["requirements-dev.txt"] }
+doc = { file = ["requirements-doc.txt"] }
 test = { file = ["requirements-test.txt"] }
 
 [tool.tox]
