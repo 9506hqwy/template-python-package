@@ -1,7 +1,0 @@
-include .editorconfig
-include .flake8
-include .gitignore
-include .vscode/extensions.json
-include .vscode/launch.json
-include .vscode/settings.json
-recursive-include test test_*.py

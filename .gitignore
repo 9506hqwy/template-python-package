@@ -4,9 +4,11 @@
 .venv/
 __pycache__/
 artifacts/
+coverage_html/
 dist/
 doc/
 *.egg-info/
 
 .coverage
 coverage.xml
+uv.lock

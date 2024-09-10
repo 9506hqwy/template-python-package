@@ -2,21 +2,24 @@
 
 This repository provides a template for python package.
 
+This repository uses [uv](https://github.com/astral-sh/uv) for project management.
+
 ## Prepare
 
+1. Install [uv](https://github.com/astral-sh/uv).
 1. Replace the keyword in the `pyproject.toml`.
    - `PACKAGE_NAME`: package's name
    - `PACKAGE_DESCRIPTION`: package's description
    - `USERNAME`: package's author
-2. Update other content in the `pyproject.toml`.
-3. Implement `src` and `test` directories.
+1. Update other content in the `pyproject.toml`.
+1. Implement `src` and `test` directories.
 
 ## Development
 
 Install require libraries.
 
 ```sh
-python3 -m pip install -r requirements-dev.txt
+uv sync --extra dev
 ```
 
 ## Testing
@@ -24,13 +27,13 @@ python3 -m pip install -r requirements-dev.txt
 Install require libraries.
 
 ```sh
-python3 -m pip install -r requirements-test.txt
+uv sync --extra test
 ```
 
 Execute test code.
 
 ```sh
-tox
+uv run tox
 ```
 
 ## Documentation
@@ -38,27 +41,21 @@ tox
 Install require libraries.
 
 ```sh
-python3 -m pip install -r requirements-doc.txt
+uv sync --extra doc
 ```
 
 Generate API document.
 
 ```sh
-sphinx-apidoc -F -f -a -H PROJECT -A AUTHOR -V VERSION -o doc src
+uv run sphinx-apidoc -F -f -a -H PROJECT -A AUTHOR -V VERSION -o doc src
 cd doc
-make html
+uv run make html
 ```
 
 ## Building package
 
-Install require libraries.
-
-```sh
-python3 -m pip install build
-```
-
 Build `sdist` and `bdist`.
 
 ```sh
-python3 -m build
+uv build
 ```

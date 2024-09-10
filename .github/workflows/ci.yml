@@ -6,111 +6,86 @@ on:
     tags-ignore: [ '**' ]
 
 jobs:
-  build_vers:
+  build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
-      fail-fast: false
       matrix:
-        version: ['3.8', '3.9', '3.10', '3.11', '3.12']
-
-    container:
-      image: python:${{ matrix.version }}
+        os: [ubuntu-latest, windows-latest]
 
     steps:
     - uses: actions/checkout@v4
 
+    - name: Install Project Management Tool
+      run: pip install uv
+
     - name: Install Test Libraries
-      run: pip install tox
-
-    - name: Check Format
-      run: tox run -e format
-
-    - name: Check Lint
-      run: tox run -e lint
-
-    - name: Check Type Hint
-      run: tox run -e type
+      run: uv sync --extra test
 
     - name: Run Tests
-      run: |
-        VER=$(echo '${{ matrix.version }}' | sed -e 's/\.//')
-        tox run -e py${VER}
+      run: uv run tox
 
-    - name: Generate Coverage Report
+    - name: Generate Coverage Report (Ubuntu)
+      if: matrix.os == 'ubuntu-latest'
       run: |
-        pip install coverage
-
         mkdir ./artifacts
-        coverage report > ./artifacts/Summary.txt
-        coverage report --format=markdown > ./artifacts/SummaryGithub.md
 
-        coverage html --directory=./coverage_html
-        tar -C coverage_html -zcf ./artifacts/coverage.tar.gz .
+        uv run coverage report > ./artifacts/Summary.txt
+        cat ./artifacts/Summary.txt
 
-    - name: Report Coverage
+        uv run coverage report --format=markdown > ./artifacts/SummaryGithub.md
+        cat ./artifacts/SummaryGithub.md > $GITHUB_STEP_SUMMARY
+
+        uv run coverage html --directory=./coverage_html
+        CUR_DIR=$(pwd)
+        pushd coverage_html
+        tar -zcf "${CUR_DIR}/artifacts/coverage.tar.gz" *
+        popd
+
+    - name: Generate Coverage Report (Windows)
+      if: matrix.os == 'windows-latest'
       run: |
-        cat "./artifacts/Summary.txt"
-        cat "./artifacts/SummaryGithub.md" > $GITHUB_STEP_SUMMARY
-
-    - name: Install Build Libraries
-      run: pip install build
-
-    - name: Create Artifacts
-      run: python -m build
-
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: artifacts-${{ runner.os }}-${{ runner.arch }}-${{ matrix.version }}-${{ github.run_number }}
-        path: |
-          artifacts
-          dist
-        retention-days: 1
-
-  build_win:
-
-    runs-on: windows-latest
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Install Test Libraries
-      run: pip install tox
-
-    - name: Run Tests
-      run: tox
-
-    - name: Generate Coverage Report
-      run: |
-        pip install coverage
-
         mkdir .\artifacts
-        coverage report > .\artifacts\Summary.txt
-        coverage report --format=markdown > .\artifacts\SummaryGithub.md
 
-        coverage html --directory=.\coverage_html
-        Compress-Archive -Path 'coverage_html\*' -DestinationPath ".\artifacts\coverage.zip"
-
-    - name: Report Coverage
-      run: |
+        uv run coverage report > .\artifacts\Summary.txt
         Get-Content ".\artifacts\Summary.txt"
+
+        uv run coverage report --format=markdown > .\artifacts\SummaryGithub.md
         Get-Content ".\artifacts\SummaryGithub.md" > $env:GITHUB_STEP_SUMMARY
 
-    - name: Install Build Libraries
-      run: |
-        pip install build
-        pip install -r requirements-doc.txt
+        uv run coverage html --directory=.\coverage_html
+        Compress-Archive -Path 'coverage_html\*' -DestinationPath ".\artifacts\coverage.zip"
 
-    - name: Create Artifacts
+    - name: Create Artifacts (Ubuntu)
+      if: matrix.os == 'ubuntu-latest'
       run: |
-        python -m build
+        uv build
+
+        uv sync --extra doc
+
+        REPOSITORY_NAME=${GITHUB_REPOSITORY#${GITHUB_REPOSITORY_OWNER}/}
+        uv run sphinx-apidoc -F -f -a -H $REPOSITORY_NAME -A $GITHUB_REPOSITORY_OWNER -V latest -o doc src
+        pushd doc
+        uv run make html
+        popd
+
+        CUR_DIR=$(pwd)
+        pushd doc/_build/html/
+        tar -zcf "${CUR_DIR}/artifacts/help-${REPOSITORY_NAME}.tar.gz" *
+        popd
+
+    - name: Create Artifacts (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        uv build
+
+        uv sync --extra doc
 
         $REPOSITORY_NAME = ($env:GITHUB_REPOSITORY -Split '/')[1]
-        sphinx-apidoc -F -f -a -H $REPOSITORY_NAME -A $env:GITHUB_REPOSITORY_OWNER -V latest -o doc src
+        uv run sphinx-apidoc -F -f -a -H $REPOSITORY_NAME -A $env:GITHUB_REPOSITORY_OWNER -V latest -o doc src
         pushd doc
-        .\make.bat html
+        uv run .\make.bat html
         popd
 
         Compress-Archive -Path 'doc\_build\html\*' -DestinationPath ".\artifacts\help-${REPOSITORY_NAME}.zip"
