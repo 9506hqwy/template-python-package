@@ -18,12 +18,8 @@ requires-python = ">= 3.9"
 
 [project.optional-dependencies]
 dev = [
-  "bandit>=1.7.9",
-  "black>=24.8.0",
-  "flake8-bandit>=4.1.1",
-  "flake8>=7.1.1",
-  "isort>=5.13.2",
   "mypy>=1.11.2",
+  "ruff>=0.6.4",
 ]
 doc = [
   "sphinx>=7.4.7",
@@ -42,17 +38,8 @@ Homepage = "https://github.com/USERNAME/PACKAGE_NAME"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.black]
-# relaxed line length
-line-length = 99
-
 [tool.hatch.build.targets.wheel]
 packages = ["src/example"]
-
-[tool.isort]
-profile = "black"
-# relaxed line length
-line_length = 99
 
 [tool.mypy]
 disallow_subclassing_any = true
@@ -69,6 +56,16 @@ warn_unused_ignores = true
 addopts = ["--cov=src", "-v"]
 # occur `no-data-collected` at coverage if removed.
 pythonpath = "src"
+
+[tool.ruff]
+# relaxed line length
+line-length = 99
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "I", "N", "S", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"test/*" = ["S101"]
 
 [tool.tox]
 legacy_tox_ini = """
@@ -90,14 +87,14 @@ commands =
   pytest --cov-append
 
 [testenv:format]
-deps = black
+deps = ruff
 commands =
-  black --check .
+  ruff format --check
 
 [testenv:lint]
-deps = flake8
+deps = ruff
 commands =
-  flake8
+  ruff check
 
 [testenv:type]
 deps = mypy
