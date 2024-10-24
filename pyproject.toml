@@ -53,7 +53,6 @@ warn_unreachable = true
 warn_unused_ignores = true
 
 [tool.pytest.ini_options]
-addopts = ["--cov=src", "-v"]
 # occur `no-data-collected` at coverage if removed.
 pythonpath = "src"
 
@@ -85,7 +84,7 @@ deps =
   pytest
   pytest-cov
 commands =
-  pytest --cov-append
+  pytest --cov-append --cov=src -v
 
 [testenv:format]
 deps = ruff

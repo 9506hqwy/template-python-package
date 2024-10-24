@@ -5,10 +5,6 @@
         "editor.defaultFormatter": "charliermarsh.ruff",
         "editor.formatOnSave": true
     },
-    "python.testing.pytestArgs": [
-        "--cov-report",
-        "xml"
-    ],
     "python.testing.pytestEnabled": true,
     "python.testing.unittestEnabled": false
 }
