@@ -6,6 +6,7 @@
         "ms-python.mypy-type-checker",
         "ms-python.vscode-pylance",
         "ms-vscode-remote.remote-containers",
-        "njpwerner.autodocstring"
+        "njpwerner.autodocstring",
+        "tamasfe.even-better-toml"
     ]
 }

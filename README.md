@@ -19,7 +19,7 @@ This repository uses [uv](https://github.com/astral-sh/uv) for project managemen
 Install require libraries.
 
 ```sh
-uv sync --extra dev
+uv sync --group dev
 ```
 
 ## Testing
@@ -27,7 +27,7 @@ uv sync --extra dev
 Install require libraries.
 
 ```sh
-uv sync --extra test
+uv sync --group test
 ```
 
 Execute test code.
@@ -41,7 +41,7 @@ uv run tox
 Install require libraries.
 
 ```sh
-uv sync --extra doc
+uv sync --group doc
 ```
 
 Generate API document.
