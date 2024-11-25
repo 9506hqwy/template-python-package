@@ -13,7 +13,7 @@
         "seccomp=unconfined"
     ],
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "pip install uv && uv sync --group all && pip install pytest pytest-cov",
+    "postCreateCommand": "pip install uv && uv sync --all-groups && pip install pytest pytest-cov",
     // Uncomment to connect as root instead.
     //"remoteUser": "root",
     // Use default container `USER`,
