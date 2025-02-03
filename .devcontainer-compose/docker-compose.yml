@@ -2,11 +2,8 @@ services:
   app:
     image: mcr.microsoft.com/devcontainers/python:3.12-bookworm
     tty: true
-    working_dir: "/workspace"
     ports:
       - "8000:8000"
-    volumes:
-      - ..:/workspace
   postgres:
     image: postgres:17
     tty: true
