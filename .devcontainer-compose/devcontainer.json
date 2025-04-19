@@ -10,13 +10,16 @@
         "ghcr.io/devcontainers/features/github-cli:1": {}
     },
     // Execute after creating container.
-    "postCreateCommand": "/bin/bash ${containerWorkspaceFolder}/.devcontainer/post-create.sh",
+    "onCreateCommand": "/bin/bash ${containerWorkspaceFolder}/.devcontainer/post-create.sh",
     // Mount workspace.
     "mounts": [
         "source=${localWorkspaceFolder},target=/workspace/${containerWorkspaceFolderBasename},type=bind"
     ],
     // Forwarding ports.
-    "forwardPorts": [5432, 8000],
+    "forwardPorts": [
+        5432,
+        8000
+    ],
     // Specify default container user.
     "remoteUser": "vscode",
     // Customize vscode.
