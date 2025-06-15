@@ -11,4 +11,5 @@ doc/
 *.egg-info/
 
 .coverage
+pylock.toml
 uv.lock

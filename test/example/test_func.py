@@ -5,8 +5,10 @@ from example.func import (
 
 
 def test_add() -> None:
-    assert add(2, 1) == 3
+    ret = 3
+    assert add(2, 1) == ret
 
 
 def test_sub() -> None:
-    assert sub(2, 1) == 1
+    ret = 1
+    assert sub(2, 1) == ret

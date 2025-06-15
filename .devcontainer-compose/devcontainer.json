@@ -9,8 +9,12 @@
     "features": {
         "ghcr.io/devcontainers/features/github-cli:1": {}
     },
+    // Set container's environment variables.
+    "containerEnv": {
+        "UV_LINK_MODE": "copy"
+    },
     // Execute after creating container.
-    "onCreateCommand": "/bin/bash ${containerWorkspaceFolder}/.devcontainer/post-create.sh",
+    "onCreateCommand": "/bin/bash ${containerWorkspaceFolder}/.devcontainer/on-create.sh",
     // Mount workspace.
     "mounts": [
         "source=${localWorkspaceFolder},target=/workspace/${containerWorkspaceFolderBasename},type=bind"
