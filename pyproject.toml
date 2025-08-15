@@ -24,7 +24,13 @@ build-backend = "uv_build"
 [dependency-groups]
 dev = ["mypy>=1.16.1", "pip-licenses>=5.0.0", "ruff>=0.12.2"]
 doc = ["sphinx>=8.2.3"]
-test = ["pytest-cov>=6.2.1", "pytest>=8.4.1", "tox-uv>=1.26.1", "tox>=4.27.0"]
+test = [
+  "pytest-benchmark>=5.1.0",
+  "pytest-cov>=6.2.1",
+  "pytest>=8.4.1",
+  "tox-uv>=1.26.1",
+  "tox>=4.27.0",
+]
 
 [tool.uv.build-backend]
 module-name = "example"
@@ -41,6 +47,7 @@ warn_unreachable = true
 warn_unused_ignores = true
 
 [tool.pytest.ini_options]
+addopts = "--benchmark-skip"
 # occur `no-data-collected` at coverage if removed.
 pythonpath = "src"
 
@@ -87,6 +94,7 @@ env_list =
 [testenv]
 deps =
   pytest
+  pytest-benchmark
   pytest-cov
 commands =
   pytest --cov-append --cov-branch --cov=src -v

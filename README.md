@@ -60,6 +60,14 @@ Execute test code.
 uv run pytest
 ```
 
+### Benchmark
+
+Run test with benchmark.
+
+```sh
+uv run pytest --benchmark-only
+```
+
 ### Updating
 
 TODO: [Upgrade dependencies in pyproject.toml (uv upgrade) #6794](https://github.com/astral-sh/uv/issues/6794)
