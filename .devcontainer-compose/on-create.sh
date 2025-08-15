@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Install dependencies
 sudo apt-get update
-sudo apt-get install postgresql-client zstd
+sudo apt-get install graphviz postgresql-client zstd
 
 # Configuration PATH
 mkdir -p ~/.local/bin

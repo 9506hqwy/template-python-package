@@ -60,6 +60,36 @@ Execute test code.
 uv run pytest
 ```
 
+### Profiling
+
+#### CPU Profile
+
+Run target application with profiler.
+
+```sh
+uv run python -m cProfile -o profile.pstats <target application>
+```
+
+Convert to image file from pstats file.
+
+```sh
+uv run gprof2dot -f pstats profile.pstats | dot -T png -o profile.png
+```
+
+#### Memory Profile
+
+Run target application with profiler.
+
+```sh
+uv run python -m memray run -o profile.bin <target application>
+```
+
+Show summary.
+
+```sh
+uv run python -m memray summary profile.bin
+```
+
 ### Benchmark
 
 Run test with benchmark.

@@ -22,7 +22,13 @@ requires = ["uv_build>=0.7.19,<0.8.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
-dev = ["mypy>=1.16.1", "pip-licenses>=5.0.0", "ruff>=0.12.2"]
+dev = [
+  "gprof2dot>=2025.4.14",
+  "memray>=1.18.0",
+  "mypy>=1.16.1",
+  "pip-licenses>=5.0.0",
+  "ruff>=0.12.2",
+]
 doc = ["sphinx>=8.2.3"]
 test = [
   "pytest-benchmark>=5.1.0",

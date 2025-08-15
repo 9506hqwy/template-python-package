@@ -11,6 +11,9 @@ dist/
 doc/
 *.egg-info/
 
+*.bin
+*.pstats
+
 .coverage
 pylock.toml
 uv.lock
