@@ -2,7 +2,7 @@ pre-commit:
   jobs:
     - name: Python Format
       glob: "*.py"
-      run: uv run ruff format --check
+      run: uv format --check
 
     - name: Python Lint
       glob: "*.py"

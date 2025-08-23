@@ -33,7 +33,7 @@ uv run tox
 Format source code.
 
 ```sh
-uv run ruff format
+uv format
 ```
 
 ### Linting
