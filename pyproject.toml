@@ -34,7 +34,7 @@ test = [
 ]
 
 [tool.uv.build-backend]
-module-name = "example"
+module-name = "example_lib"
 
 [tool.mypy]
 disallow_subclassing_any = true

@@ -1,6 +1,6 @@
-from pytest_benchmark.fixture import BenchmarkFixture  # type: ignore[import-untyped]
+from pytest_benchmark.fixture import BenchmarkFixture
 
-from example.func import (
+from example_lib.func import (
     add,
     sub,
 )
