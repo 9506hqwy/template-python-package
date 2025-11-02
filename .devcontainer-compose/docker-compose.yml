@@ -1,6 +1,6 @@
 services:
   app:
-    image: mcr.microsoft.com/devcontainers/python:3.12-bookworm
+    image: mcr.microsoft.com/devcontainers/python:3.12-trixie
     tty: true
     ports:
       - "8000:8000"
