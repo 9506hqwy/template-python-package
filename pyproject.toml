@@ -37,6 +37,7 @@ test = [
 module-name = "example_lib"
 
 [tool.mypy]
+# https://mypy.readthedocs.io/en/stable/config_file.html
 disallow_subclassing_any = true
 disallow_untyped_calls = true
 disallow_untyped_defs = true
