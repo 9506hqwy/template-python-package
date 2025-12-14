@@ -115,8 +115,8 @@ uv run pip-licenses
 Generate API document.
 
 ```sh
-uv run sphinx-apidoc -F -f -a -H PROJECT -A AUTHOR -V VERSION -o doc src
-cd doc
+uv run sphinx-apidoc -F -f -a -H PROJECT -A AUTHOR -V VERSION -o docs src
+cd docs
 uv run make html
 ```
 
