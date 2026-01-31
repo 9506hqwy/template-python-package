@@ -22,15 +22,15 @@ requires = ["uv_build>=0.9.0,<0.10.0"]
 build-backend = "uv_build"
 
 [dependency-groups]
-dev = ["mypy>=1.17.1", "pip-licenses>=5.0.0", "ruff>=0.12.11"]
-doc = ["sphinx>=8.2.3"]
-profile = ["gprof2dot>=2025.4.14", "memray>=1.18.0"]
+dev = ["mypy>=1.19.1", "pip-licenses>=5.5.1", "ruff>=0.14.14"]
+doc = ["sphinx>=9.1.0"]
+profile = ["gprof2dot>=2025.4.14", "memray>=1.19.1"]
 test = [
-  "pytest-benchmark>=5.1.0",
-  "pytest-cov>=6.2.1",
-  "pytest>=8.4.1",
-  "tox-uv>=1.28.0",
-  "tox>=4.29.0",
+  "pytest-benchmark>=5.2.3",
+  "pytest-cov>=7.0.0",
+  "pytest>=9.0.2",
+  "tox-uv>=1.29.0",
+  "tox>=4.34.1",
 ]
 
 [tool.uv.build-backend]
