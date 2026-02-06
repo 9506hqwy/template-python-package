@@ -123,5 +123,5 @@ commands =
 [testenv:type]
 deps = mypy
 commands =
-  mypy ./src
+  mypy --no-namespace-packages ./src
 """
