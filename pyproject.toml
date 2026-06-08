@@ -30,7 +30,7 @@ test = [
   "pytest-cov>=7.1.0",
   "pytest>=9.0.3",
   "tox-uv>=1.35.2",
-  "tox>=4.55.0",
+  "tox>=4.55.1",
 ]
 
 [tool.uv.build-backend]
