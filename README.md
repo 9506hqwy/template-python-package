@@ -102,6 +102,12 @@ uv run pytest --benchmark-only
 
 TODO: [Upgrade dependencies in pyproject.toml (uv upgrade) #6794](https://github.com/astral-sh/uv/issues/6794)
 
+Check dependencies vulnerables.
+
+```sh
+uv audit
+```
+
 ### License Checking
 
 Check dependency license.
