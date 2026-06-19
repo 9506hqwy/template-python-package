@@ -9,8 +9,6 @@ sudo apt-get install -y graphviz postgresql-client shellcheck
 mkdir -p ~/.local/bin
 # shellcheck disable=SC2016
 echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
-# shellcheck disable=SC2016
-echo 'export PATH=$PATH:~/.dotnet/tools' >> ~/.bashrc
 
 # Common
 GITHUB_HEADER_ACCEPT="Accept: application/vnd.github+json"
