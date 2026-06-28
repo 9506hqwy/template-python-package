@@ -28,7 +28,7 @@ profile = ["gprof2dot>=2025.4.14", "memray>=1.19.3"]
 test = [
   "pytest-benchmark>=5.2.3",
   "pytest-cov>=7.1.0",
-  "pytest>=9.1.0",
+  "pytest>=9.1.1",
   "tox-uv>=1.35.2",
   "tox>=4.55.1",
 ]
