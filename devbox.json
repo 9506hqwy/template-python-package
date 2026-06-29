@@ -1,0 +1,20 @@
+{
+    "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.17.5/.schema/devbox.schema.json",
+    "packages": [
+        "actionlint@latest",
+        "bat@latest",
+        "delta@latest",
+        "graphviz@latest",
+        "lefthook@latest",
+        "msedit@latest",
+        "python@3.12",
+        "shellcheck@latest",
+        "uv@latest",
+        "yq@latest"
+    ],
+    "shell": {
+        "init_hook": [
+            ". $VENV_DIR/bin/activate"
+        ]
+    }
+}
