@@ -3,15 +3,6 @@
     "name": "Python 3",
     // Base Container Image.
     "image": "mcr.microsoft.com/devcontainers/python:3.12-trixie",
-    // For running using Podman.
-    // https://github.com/microsoft/vscode-remote-release/issues/4443
-    "runArgs": [
-        "--userns=keep-id"
-    ],
-    "securityOpt": [
-        "label=disable",
-        "seccomp=unconfined"
-    ],
     // Set container's environment variables.
     "containerEnv": {
         "UV_LINK_MODE": "copy"
