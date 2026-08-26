@@ -1,19 +1,27 @@
 pre-commit:
   jobs:
     - name: Python Format
-      glob: "*.py"
+      glob:
+        - "*.py"
+        - "pyproject.toml"
       run: uv run tox -e format
 
     - name: Python Lint
-      glob: "*.py"
+      glob:
+        - "*.py"
+        - "pyproject.toml"
       run: uv run tox -e lint
 
     - name: Python Type
-      glob: "*.py"
+      glob:
+        - "*.py"
+        - "pyproject.toml"
       run: uv run tox -e type
 
     - name: Python Test
-      glob: "*.py"
+      glob:
+        - "*.py"
+        - "pyproject.toml"
       run: uv run tox -e py312
 
     - name: Actions Lint
