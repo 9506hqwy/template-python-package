@@ -4,6 +4,17 @@ on:
   push:
     branches: [ main ]
     tags-ignore: [ '**' ]
+    paths-ignore:
+      - '.devcontainer/**'
+      - '..devcontainer-compose/**'
+      - '.github/**'
+      - '.vscode/**'
+      - '.editorconfig'
+      - '.gitignore'
+      - '.lefthook.yml'
+      - 'devbox.json'
+      - 'LICENSE'
+      - 'README.md'
   pull_request:
 
 permissions:
