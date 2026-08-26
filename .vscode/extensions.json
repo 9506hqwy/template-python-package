@@ -8,6 +8,7 @@
         "ms-python.mypy-type-checker",
         "njpwerner.autodocstring",
         "tamasfe.even-better-toml",
+        "task.vscode-task",
         "timonwong.shellcheck",
         "yzhang.markdown-all-in-one"
     ]

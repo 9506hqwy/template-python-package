@@ -1,0 +1,51 @@
+version: '3'
+
+tasks:
+  format:
+    cmds:
+      - uv run tox -e format
+
+  lint:
+    cmds:
+      - uv run tox -e lint
+      - uv run tox -e type
+
+  test:
+    deps:
+      - test-py312
+      - test-py313
+      - test-py314
+
+  test-py312:
+    cmds:
+      - uv run tox -e py312
+
+  test-py313:
+    cmds:
+      - uv run tox -e py313
+
+  test-py314:
+    cmds:
+      - uv run tox -e py314
+
+  license-check:
+    cmds:
+      - uv run pip-licenses
+
+  doc-gen:
+    cmds:
+      - |
+        uv run sphinx-apidoc -F -f -a -H {{.PROJECT}} -A {{.AUTHOR}} -V {{.VERSION}} -o docs src
+        cd docs
+        uv run make html
+    vars:
+      PROJECT:
+        sh: grep "^name\s*=" pyproject.toml | sed -e 's/name\s*=\s*"\(.*\)"/\1/'
+      AUTHOR:
+        sh:  grep "^authors\s*=" pyproject.toml | sed -e 's/.*"\(.*\)".*/\1/'
+      VERSION:
+        sh: grep "^version\s*=" pyproject.toml | sed -e 's/version\s*=\s*"\(.*\)"/\1/'
+
+  pkg-gen:
+    cmds:
+      - uv build

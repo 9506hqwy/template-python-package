@@ -4,6 +4,7 @@
         "actionlint@latest",
         "bat@latest",
         "delta@latest",
+        "go-task@latest",
         "graphviz@latest",
         "lefthook@latest",
         "msedit@latest",

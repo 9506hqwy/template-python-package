@@ -15,6 +15,7 @@ on:
       - 'devbox.json'
       - 'LICENSE'
       - 'README.md'
+      - 'taskfile.yml'
   pull_request:
 
 permissions:
