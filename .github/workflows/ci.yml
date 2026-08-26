@@ -6,7 +6,7 @@ on:
     tags-ignore: [ '**' ]
     paths-ignore:
       - '.devcontainer/**'
-      - '..devcontainer-compose/**'
+      - '.devcontainer-compose/**'
       - '.github/**'
       - '.vscode/**'
       - '.editorconfig'
