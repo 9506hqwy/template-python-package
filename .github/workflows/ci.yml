@@ -12,7 +12,6 @@ on:
       - '.editorconfig'
       - '.gitignore'
       - '.lefthook.yml'
-      - 'devbox.json'
       - 'LICENSE'
       - 'README.md'
       - 'taskfile.yml'

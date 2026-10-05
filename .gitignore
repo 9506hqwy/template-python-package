@@ -226,8 +226,3 @@ artifacts/
 
 # Memray
 *.bin
-
-# Devbox
-#   lock file (template only)
-.devbox/
-devbox.lock
