@@ -49,3 +49,9 @@ tasks:
   pkg-gen:
     cmds:
       - uv build
+
+  sbom-gen:
+    cmds:
+      - mkdir -p artifacts
+      - find ./artifacts -name "*.sbom.json" -delete
+      - ./tools/gen-sbom.sh -o artifacts --no-default-groups
