@@ -65,5 +65,5 @@ curl -fsSL -o - "https://astral.sh/uv/install.sh" | sh
 # Setup environment
 uv sync --all-groups
 
-# Install python 3.13, 3.14
-uv python install 3.13 3.14
+# Install python 3.13, 3.14 3.15
+uv python install 3.13 3.14 3.15

@@ -15,6 +15,7 @@ tasks:
       - test-py312
       - test-py313
       - test-py314
+      - test-py315
 
   test-py312:
     cmds:
@@ -27,6 +28,10 @@ tasks:
   test-py314:
     cmds:
       - uv run tox -e py314
+
+  test-py315:
+    cmds:
+      - uv run tox -e py315
 
   license-check:
     cmds:
