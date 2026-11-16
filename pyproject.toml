@@ -29,7 +29,7 @@ test = [
   "pytest-benchmark>=5.3.1",
   "pytest-cov>=7.1.0",
   "pytest>=9.2.0",
-  "tox-uv>=1.37.3",
+  "tox-uv>=1.37.7",
 ]
 
 [tool.uv.build-backend]
